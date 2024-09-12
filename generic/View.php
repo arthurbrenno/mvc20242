@@ -9,7 +9,7 @@ class View {
     {
         $this->template=$template;
     }
-    public function conteudo($caminho){
+    public function conteudo($caminho,$param = null){
         echo $this->template->cabecalho();
         include $caminho;
         echo $this->template->rodape();
