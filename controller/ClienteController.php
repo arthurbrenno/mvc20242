@@ -15,9 +15,7 @@ class ClienteController{
 
     public function alterarCliente(){
         $clienteServ = new ClienteService();
-        
         $retorno=$clienteServ->buscarDados();
-        
         $clienteView = new ClienteView();
         $clienteView->alterarClientes($retorno);
     }
@@ -25,6 +23,23 @@ class ClienteController{
     public function salvarAlterarCliente(){
         $clienteServ = new ClienteService();
         $clienteServ->salvarAlterar();
+        $this->listarClientes();
+    }
+
+    public function criarCliente(){
+        $clienteView = new ClienteView();
+        $clienteView->criarCliente();
+    }
+
+    public function salvarCriarCliente(){
+        $clienteServ = new ClienteService();
+        $clienteServ->salvarCriar();
+        $this->listarClientes();
+    }
+
+    public function deletarCliente(){
+        $clienteServ = new ClienteService();
+        $clienteServ->deletarCliente();
         $this->listarClientes();
     }
 }

@@ -1,12 +1,14 @@
 <?php
 namespace service;
 
-use dao\mysql\ClienteDAO;
+use dao\mysql\AluguelDAO;
 
-class ClienteService extends ClienteDAO{
-    public function listaClientes(){
+class AluguelService extends AluguelDAO{
+
+    public function listaAlugueis(){
         return parent::listar();
     }
+
     public function buscarDados(){
         if(isset($_GET["id"])){
             $linha = parent::dados($_GET["id"]);
@@ -19,25 +21,25 @@ class ClienteService extends ClienteDAO{
 
     public function salvarAlterar(){
         if(isset($_POST["id"])){
-            $this->alterarCliente($_POST["id"],$_POST["nome"]);
+            $this->alterarAluguel($_POST["id"], $_POST);
         }
     }
 
-    private function alterarCliente($id,$nome){
-        parent::alterar($id,$nome);
+    private function alterarAluguel($id, $dados){
+        parent::alterar($id, $dados);
     }
 
     public function salvarCriar(){
-        if(isset($_POST["nome"])){
-            $this->criarCliente($_POST["nome"]);
+        if($_POST){
+            $this->criarAluguel($_POST);
         }
     }
 
-    private function criarCliente($nome){
-        parent::criar($nome);
+    private function criarAluguel($dados){
+        parent::criar($dados);
     }
 
-    public function deletarCliente(){
+    public function deletarAluguel(){
         if(isset($_GET["id"])){
             parent::deletar($_GET["id"]);
         }

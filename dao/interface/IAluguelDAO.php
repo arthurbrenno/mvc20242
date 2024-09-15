@@ -1,10 +1,10 @@
 <?php
 namespace dao\interface;
-interface IClienteDAO{
+interface IAluguelDAO{
     public function listar();
-    public function alterar($id,$nome);
+    public function alterar($id, $dados);
     public function dados($id);
-    public function criar($nome);
+    public function criar($dados);
     public function deletar($id);
 }
 ?>

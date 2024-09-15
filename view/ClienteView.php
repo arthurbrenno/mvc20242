@@ -13,13 +13,17 @@ class ClienteView extends View
     }
     public function listaClientes($dados)
     {
-        
         $this->conteudo("public/ListaCliente.php",$dados);
     }
 
     public function alterarClientes($dados)
     {
-        
         $this->conteudo("public/AlterarCliente.php",$dados);
     }
+
+    public function criarCliente()
+    {
+        $this->conteudo("public/CriarCliente.php");
+    }
 }
+?>
