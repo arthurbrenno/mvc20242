@@ -35,8 +35,13 @@ class Controller{
 
     public function verificarCaminho($rota){
         if(isset($this->arrChamadas[$rota])){
-             $this->arrChamadas[$rota]->executar();
-             return;
+            try {
+                $this->arrChamadas[$rota]->executar();
+            }
+            catch (Exception $e) {
+                echo "Ocorreu um erro em tempo de execução.";
+            }
+            return;
         }
 
         echo "Rota não existe!";
